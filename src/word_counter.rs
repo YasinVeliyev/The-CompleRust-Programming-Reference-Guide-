@@ -17,7 +17,7 @@ impl WordCounter {
         *count += 1
     }
 
-    fn display(self) {
+    fn display(&self) {
         println!("{:#?}", self.0);
     }
 }
