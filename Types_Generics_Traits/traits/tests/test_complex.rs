@@ -16,3 +16,11 @@ fn complex_addition() {
     let res = a + b;
     assert_eq!(res, a);
 }
+
+#[test]
+fn complex_from() {
+    let a = (2345, 456);
+    let complex = Complex::from(a);
+    assert_eq!(complex.re, 2345);
+    assert_eq!(complex.img, 456);
+}

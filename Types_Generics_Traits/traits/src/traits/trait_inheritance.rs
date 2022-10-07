@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 trait Vehicle {
     fn get_price(&self) -> u64;
 }

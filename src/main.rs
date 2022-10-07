@@ -8,8 +8,7 @@ use closure::*;
 mod enums;
 use enums::*;
 mod word_counter;
-use std::collections::btree_map::OccupiedEntry;
-use std::collections::hash_map::Entry;
+
 use std::collections::HashMap;
 use std::env;
 use word_counter::call_word_counter;
@@ -25,7 +24,7 @@ fn main() {
     let mut hash = HashMap::<String, u64>::new();
     let s = "k".to_string();
     hash.insert(s, 64);
-    let k = match hash.get("k") {
+    match hash.get("k") {
         Some(value) => {
             let mut v = *value;
             v += 1;

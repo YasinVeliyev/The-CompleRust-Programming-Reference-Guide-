@@ -1,3 +1,5 @@
+use std::convert::From;
+use std::fmt::{Display, Formatter, Result};
 use std::ops::Add;
 
 #[derive(Debug, PartialEq, Default, Clone, Copy)]
@@ -19,5 +21,20 @@ impl<T: Add<T, Output = T>> Add for Complex<T> {
             re: self.re + rhs.re,
             img: self.img + rhs.img,
         }
+    }
+}
+
+impl<T> From<(T, T)> for Complex<T> {
+    fn from(value: (T, T)) -> Self {
+        Self {
+            re: value.0,
+            img: value.1,
+        }
+    }
+}
+
+impl<T: Display> Display for Complex<T> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> Result {
+        write!(f, "{} + {}i", self.re, self.img)
     }
 }
